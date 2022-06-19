@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from page_objects.login_page_objects import LOGINPAGEOBJECTS
+from locators.login_elements import LOGINELEMENTS
 import logging
 
 
@@ -48,19 +49,36 @@ class LOGINAUTOMATION:
             screen_alert = self.loginobjects.get_alert()
         except:
             screen_alert = None
+    
+    # capture alert message
+    def get_alert_message(self):
+        try:
+            alert_text = WebDriverWait(self.driver, 50).until(EC.presence_of_element_located((By.ID,LOGINELEMENTS.alert_id))).text
+        except:
+            alert_text = 'No Alert'
+        return alert_text
+
+
                 
     def loginapplication(self,username,password):
         print('Login Form - Steps to execute test case')
         print('Step - 1: Input username')
         self.enter_username(username)
         time.sleep(2)
-
         print('Step - 2: Input password')
         self.enter_password(password)
         time.sleep(2)
-
         print('Step - 3: Click login button')
         self.click_login_button()
+        alert_text = self.get_alert_message()
+        print('Alert Message on Screen'+ ' ' + alert_text)
+        try:
+            username_field = self.loginobjects.get_username()
+        except:
+            username_field = None
+        return username_field
+
+
         
         
 
