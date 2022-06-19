@@ -21,65 +21,93 @@ class TestTASK():
         self.driver.get('http://the-internet.herokuapp.com/login')
         time.sleep(2)
         self.login_automation = LOGINAUTOMATION(self.driver)
+        self.correct_username = 'tomsmith'
+        self.correct_password = 'SuperSecretPassword!'
+        self.incorrect_username ='Robab'
+        self.incorrect_password='RobabTesting'
+        
         yield
         self.driver.close()
         self.driver.quit()
         print('Test Case Completed')
 
-    def test_01_testcase_for_empty_username_and_empty_password(self,test_setUp,username='',password=''):
+    # testcase for login with empty username and empty password
+    def test_01_login_with_empty_username_and_empty_password(self,test_setUp):
         try:
-            result = self.login_automation.loginapplication(username,password)
+            result = self.login_automation.loginapplication(username='',password='')
         except:
             pass
-        assert result!=None,'Logged in with empty username and password field, test case failed'
+        assert result!=None,'User logged in with empty username and password field, test case failed'
     
-    def test_02_testcase_for_empty_username_and_correct_password(self,test_setUp,username='',password='SuperSecretPassword!'):
+    # testcase for login with empty username and correct password
+    def test_02_login_with_empty_username_and_correct_password(self,test_setUp):
         try:
-            result = self.login_automation.loginapplication(username,password)
+            result = self.login_automation.loginapplication(username='',password =self.correct_password)
         except:
             pass
-        assert result!=None,'Logged in with empty username field but correct password, test case failed'
+        assert result!=None,'User logged in with empty username field but correct password, test case failed'
     
-    def test_03_testcase_for_correct_username_and_empty_password(self,test_setUp,username='tomsmith',password=''):
+    # testcase for login with correct username and empty password
+    def test_03_login_with_correct_username_and_empty_password(self,test_setUp):
         try:
-            result = self.login_automation.loginapplication(username,password)
+            result = self.login_automation.loginapplication(username=self.correct_username,password='')
         except:
             pass
-        assert result!=None,'Logged in with empty password field but correct username, test case failed'
+        assert result!=None,'User logged in with empty password field but correct username, test case failed'
     
-    def test_04_testcase_for_incorrect_username_but_correct_password(self,test_setUp,username='robab',password='SuperSecretPassword!'):
+    # testcase for login with empty username and incorrect password
+    def test_04_login_with_empty_username_and_incorrect_password(self,test_setUp):
         try:
-            result = self.login_automation.loginapplication(username,password)
+            result = self.login_automation.loginapplication(username='',password=self.incorrect_password)
         except:
             pass
-        assert result!=None,'Logged in with incorrect username but correct password, test case failed'
+        assert result!=None,'User logged in with empty usernmame field and incorrect password, test case failed'
+
+    # testcase for login with incorrect username and empty password
+    def test_05_login_with_incorrect_username_and_empty_password(self,test_setUp):
+        try:
+            result = self.login_automation.loginapplication(username=self.incorrect_username,password='')
+        except:
+            pass
+        assert result!=None,'User logged in with empty password field and incorrect username, test case failed'
+
+    # testcase for login with incrrect username but correct password
+    def test_06_login_with_incorrect_username_but_correct_password(self,test_setUp):
+        try:
+            result = self.login_automation.loginapplication(username=self.incorrect_username,password=self.correct_password)
+        except:
+            pass
+        assert result!=None,'ser logged in with incorrect username but correct password, test case failed'
         
-    def test_05_testcase_for_correct_username_but_incorrect_password(self,test_setUp,username='tomsmith',password='randompassword'):
+    # testcase for login with correct username but incorrect password
+    def test_07_login_with_correct_username_but_incorrect_password(self,test_setUp):
         try:
-            result = self.login_automation.loginapplication(username,password)
+            result = self.login_automation.loginapplication(username=self.correct_username,password=self.incorrect_password)
             time.sleep(2)
         except:
             pass
-        assert result!=None,'Logged in with correct username but incorrect password, test case failed'
+        assert result!=None,'User logged in with correct username but incorrect password, test case failed'
 
-    def test_06_testcase_for_incorrect_username_and_incorrect_password(self,test_setUp,username='robab',password='robabqatest'):
+    # testcase for login with incorrect username and incorrect password
+    def test_08_login_with_incorrect_username_and_incorrect_password(self,test_setUp):
         try:
-            result = self.login_automation.loginapplication(username,password)
+            result = self.login_automation.loginapplication(username=self.incorrect_username,password=self.incorrect_password)
             time.sleep(2)
         except:
             pass
-        assert result!=None,'Logged in with incorrect username and incorrect password, test case failed'
+        assert result!=None,'user logged in with incorrect username and incorrect password, test case failed'
 
-    def test_07_testcase_for_correct_username_but_incorrect_password(self,test_setUp,username='tomsmith',password='SuperSecretPassword!'):
+    # testcase for login with correct username and correct password
+    def test_09_login_with_correct_username_and_correct_password(self,test_setUp):
         try:
-            result = self.login_automation.loginapplication(username,password)
+            result = self.login_automation.loginapplication(username=self.correct_username,password=self.correct_password)
             time.sleep(2)
         except:
             pass
         try:
-            logout_btn = WebDriverWait(self.driver, 50).until(EC.presence_of_element_located((By.ID,LOGINELEMENTS.logout_button_xpath)))
+            logout_btn = WebDriverWait(self.driver, 50).until(EC.presence_of_element_located((By.XPATH,LOGINELEMENTS.logout_button_xpath)))
         except:
             logout_btn = None
-        assert logout_btn!=None,'Login failed with correct username and correct password, hence test case failed'
+        assert logout_btn!=None,'User login failed with correct username and correct password, hence test case failed'
 
     
