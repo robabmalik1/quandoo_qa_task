@@ -68,8 +68,6 @@ class LOGINAUTOMATION:
             alert_text = 'No Alert'
 
         return alert_text
-
-
                 
     def loginapplication(self,username,password):
 
