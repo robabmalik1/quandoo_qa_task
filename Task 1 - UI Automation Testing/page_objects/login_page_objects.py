@@ -29,7 +29,7 @@ class LOGINPAGEOBJECTS:
 
         # capture alert on the login page and save it in the screen_alert variable
         try:
-            self.screen_alert = WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.ID, LOGINELEMENTS.username_id)))
+            self.screen_alert = WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.ID, LOGINELEMENTS.alert_id)))
         except:
             self.screen_alert = None
 
