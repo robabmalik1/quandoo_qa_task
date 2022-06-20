@@ -11,7 +11,6 @@ class LOGINPAGEOBJECTS:
 
         # locate username on the login page and save it in the user_name variable
         try:
-            # self.user_name = WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.ID, LOGINELEMENTS.username_id)))
             self.user_name = WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, LOGINELEMENTS.username_xpath)))
             
         except:
