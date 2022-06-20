@@ -66,7 +66,6 @@ cd ".\Task 1 - UI Automation Testing - Mobile"
 4. To run the test script, execute command below:
 ```
 pytest test_script.py
-
 ```
 ## Execute Task 2 - API Testing
 
