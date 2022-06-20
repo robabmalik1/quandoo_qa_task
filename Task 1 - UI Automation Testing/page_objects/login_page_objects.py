@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 from locators.login_elements import LOGINELEMENTS
 
 class LOGINPAGEOBJECTS:
@@ -37,8 +36,6 @@ class LOGINPAGEOBJECTS:
         
     # function to return username element from login page
     def get_username(self):
-        # print('username')
-        # user_name = WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.ID, LOGINELEMENTS.username_id)))
         return self.user_name
     
     # function to return password element from login page
