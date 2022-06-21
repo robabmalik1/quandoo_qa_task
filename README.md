@@ -84,6 +84,10 @@ cd ".\Task 2 - API Testing"
 pytest test_api_methods.py
 ```
 
+# Next Additions in test scripts
+For testing login scenario, we can implement many other test cases, for example error messages displayed.
+For API Testing, in addition to assertion of response code, we can also assert the response json received.
+
 # Next possible steps for improvements
 
 As seen in test suite for mobile automation testing, we can use pytest parameterization feature. With help of parameterization for test cases, we can avoid code redundancy in automation scripts.
