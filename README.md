@@ -13,7 +13,7 @@ First task is based on UI Automation Testing and second task is based on API Aut
 
 **Programming Language:** Python
 
-**Framework:** Selenium, Pytest
+**Framework:** Selenium, Pytest, Appium
 
 # Reason Behind Choosen Framework and Pattern(s)
 The reason behind choosing pytest as automation testing framework is simply because it allows
