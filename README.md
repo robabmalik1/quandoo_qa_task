@@ -86,8 +86,11 @@ pytest test_api_methods.py
 
 # Next possible steps for improvements
 
-As seen in test suite for mobile automation testing, we can use pytest parameterization to implement Data Driven Testing.
-With help of parameterization for test cases, we can avoid redundancy in automation scripts.
+As seen in test suite for mobile automation testing, we can use pytest parameterization feature. With help of parameterization for test cases, we can avoid code redundancy in automation scripts.
+As both the approaches i.e traditional and paramterize, can be seen in the test scripts, by implementing hybrid frame work, combining unittest and pytest we can seperate test cases based on scenarios in seperate files and execute the test suite. 
+
+# Additional Note
+Selection of the framework for the automation script depends on the Application Under Test. For smaller applications, we may keep all test cases in one file but for larger application our test scripts should be scalable.
 
 
 
